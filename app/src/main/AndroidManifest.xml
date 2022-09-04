@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.agsistemas.torneiofifast">
+
+    <uses-permission android:name="au.com.KPS.companion.ACCESS_DATA" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="test.org.help.permission.UA_DATA" /> <!-- GCM requires a Google account. -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" /> <!-- This app has permission to register with GCM and receive message -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="test.org.help.permission.C2D_MESSAGE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+
+    <application
+        android:allowBackup="true"
+        android:directBootAware="true"
+        android:exported="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".screens.edit.EditCompetitor"></activity>
+        <activity android:name=".screens.visitor.Games" />
+        <activity android:name=".screens.visitor.Historic" />
+        <activity android:name=".screens.visitor.Classification" />
+        <activity android:name=".screens.general.PlayersCards" />
+        <activity android:name=".screens.general.Settings" />
+        <activity android:name=".screens.registration.AddSeasonFinished" />
+        <activity android:name=".screens.general.HistoricTournament" />
+        <activity android:name=".screens.registration.AddTournamentFineshedHistoric" />
+        <activity android:name=".screens.general.CurrentSeason" />
+        <activity android:name=".screens.general.Classification" />
+        <activity android:name=".screens.general.Gunners" />
+        <activity android:name=".screens.edit.EditPlayerCards" />
+        <activity android:name=".screens.registration.AddPlayerCard" />
+        <activity android:name=".screens.general.Competitors" />
+        <activity android:name=".screens.edit.EditTeamManagement" />
+        <activity android:name=".screens.edit.EditPlayerTeam" />
+        <activity android:name=".screens.registration.AddPlayerTeam" />
+        <activity android:name=".screens.general.TeamManagement" />
+        <activity android:name=".screens.edit.EditGunner" />
+        <activity android:name=".screens.registration.AddGunner" />
+        <activity android:name=".screens.general.Login" />
+        <activity android:name=".screens.edit.EditFinalResults" />
+        <activity android:name=".screens.edit.EditResultsGames" />
+        <activity android:name=".screens.general.Games" />
+        <activity android:name=".screens.edit.AdminEditCompetitor" />
+        <activity android:name=".screens.registration.AddCompetitor" />
+        <activity android:name=".screens.general.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".notifications.BootCompletedIntentReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+                <action android:name="android.intent.action.BATTERY_CHANGED" />
+                <action android:name="android.intent.action.BATTERY_LOW" />
+                <action android:name="android.intent.action.BATTERY_OKAY" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".notifications.NotificationServices">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
